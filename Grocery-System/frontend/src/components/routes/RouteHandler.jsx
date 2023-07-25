@@ -2,6 +2,9 @@ import { Routes, Route } from "react-router-dom"
 import LogIn from "../login/Login.jsx"
 import Signup from "../signup/Signup.jsx";
 import Home from "../home/Home.jsx";
+import AdminLogin from "../adminLogin/AdminLogin.jsx";
+import AdminDash from "../adminDash/AdminDash.jsx";
+import FormPropsTextFields from "../itemUpdate/ItemUpdate.jsx";
 
 
 export const RouteHandler = () =>{
@@ -11,6 +14,10 @@ export const RouteHandler = () =>{
               <Route path="/Home" element={<Home/>}/>
               <Route path="/Login" element={<LogIn/>}/>
               <Route path="/Signup" element={<Signup/>}/>
+              <Route path='/admin' element={<AdminLogin/>}/>
+              <Route path="/admindash" element={<AdminDash/>}/>
+              <Route path="/itemUpdate" element={<FormPropsTextFields/>}/>
+
             </Routes>
         </>
     );
