@@ -5,6 +5,8 @@ import Home from "../home/Home.jsx";
 import AdminLogin from "../adminLogin/AdminLogin.jsx";
 import AdminDash from "../adminDash/AdminDash.jsx";
 import FormPropsTextFields from "../itemUpdate/ItemUpdate.jsx";
+import Cart from "../cart/Cart.jsx";
+import Order from "../order/Order.jsx"
 
 
 export const RouteHandler = () =>{
@@ -17,7 +19,8 @@ export const RouteHandler = () =>{
               <Route path='/admin' element={<AdminLogin/>}/>
               <Route path="/admindash" element={<AdminDash/>}/>
               <Route path="/itemUpdate" element={<FormPropsTextFields/>}/>
-
+              <Route path="/cart" element={<Cart/>}/>
+              <Route path='/order' element={<Order/>}/>
             </Routes>
         </>
     );

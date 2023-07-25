@@ -38,7 +38,7 @@ function Nav() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{bgcolor:'green'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <LocalGroceryStoreSharpIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
