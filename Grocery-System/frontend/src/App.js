@@ -1,10 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
-import LogIn from './components/login/Login';
+//import { RouteHandler } from './components/routes/RouteHandler';
+//import Login from './components/login/Login'
+import Nav from './components/nav/Nav';
 
 function App() {
   return (
-   <LogIn/>
+    <div className="App">
+      <Nav/>
+    </div>
   );
 }
 
