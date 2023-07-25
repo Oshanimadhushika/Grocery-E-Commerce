@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from 'axios';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import { Link } from 'react-router-dom'
 
 function Copyright(props) {
@@ -33,11 +33,11 @@ const defaultTheme = createTheme();
 
 export default function Signup() {
 
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLinkClick =(event) =>{
     event.preventDefault();
-    //navigate("/Login");
+    navigate("/Login");
   }
 
   const handleSubmit = async (event) => {
@@ -60,10 +60,10 @@ export default function Signup() {
         })
         .then((res) => {
           alert(res.data.message)
-          //navigate("/Login");
+          navigate("/Login");
           if (res.data.message === "saved") {
             localStorage.setItem('user', JSON.stringify(user))
-            //navigate("/Login");
+            navigate("/Login");
             //  return <Navigate to="/Hero"/>
           }
         });
