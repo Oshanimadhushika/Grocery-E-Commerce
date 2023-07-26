@@ -33,7 +33,7 @@ export default function AdminDash() {
 
   const fetchDataFromServer = () => {
     // Your code to fetch data from the server goes here
-    axios.get('http://localhost:3000/api/v1/getItem')
+    axios.get('http://localhost:3500/api/v1/getItem')
       .then((res) => {
         setItems(res.data);
       })
@@ -44,7 +44,7 @@ export default function AdminDash() {
 
   const handleItemSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:3000/api/v1/item", { itemCode, itemName, itemPrice, qtyOnHand })
+    axios.post("http://localhost:3500/api/v1/item", { itemCode, itemName, itemPrice, qtyOnHand })
       .then(res => {
         setItems([...items, res.data]);
         console.log(items)
@@ -59,7 +59,7 @@ export default function AdminDash() {
   }
 
   const handleDeleteItem = (id) => {
-    axios.delete('http://localhost:3000/api/v1/deleteItem/'+id)
+    axios.delete('http://localhost:3500/api/v1/deleteItem/'+id)
     .then(res => {console.log(res)
       window.location.reload()
     })

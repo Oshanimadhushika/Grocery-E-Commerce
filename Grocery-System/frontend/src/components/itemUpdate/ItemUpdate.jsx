@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function FormPropsTextFields() {
 
-    const {id} = useParams()
+      const {id} = useParams()
       const [itemCode, setItemCode] = useState()
       const [itemName, setItemName] = useState()
       const [itemPrice, setItemPrice] = useState()
@@ -59,7 +59,7 @@ export default function FormPropsTextFields() {
         <TextField
           required
           id="outlined-required"
-          label="Item Code"
+          //label="Item-code"
           placeholder="item code"
           value={itemCode}
           onChange={(e) => setItemCode(e.target.value)}
@@ -67,7 +67,7 @@ export default function FormPropsTextFields() {
         <TextField
          required
          id="outlined-required"
-         label="Item Name"
+         //label="Item-name"
          placeholder="item name"
          value={itemName}
          onChange={(e) => setItemName(e.target.value)}
@@ -75,7 +75,7 @@ export default function FormPropsTextFields() {
         <TextField
          required
          id="outlined-required"
-         label="Item Price"
+         //label="Item-price"
          placeholder="item price"
          value={itemPrice}
          onChange={(e) => setItemPrice(e.target.value)}
@@ -83,8 +83,8 @@ export default function FormPropsTextFields() {
         <TextField
          required
          id="outlined-required"
-         label="Quantity on hand"
-         placeholder="quantity on hand"
+         //label="Qty-on-hand"
+         placeholder="qty on hand"
          value={qtyOnHand}
          onChange={(e) => setQtyOnHand(e.target.value)}
         />
