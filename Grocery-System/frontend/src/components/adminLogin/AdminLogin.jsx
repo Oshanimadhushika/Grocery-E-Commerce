@@ -43,7 +43,7 @@ export default function AdminLogin() {
 
     try{
       await axios
-        .post("http://localhost:3000/api/v1/admin",{
+        .post("http://localhost:3500/api/v1/adminLogin",{
             signinEmail,
             signinPassword
         })
@@ -51,7 +51,7 @@ export default function AdminLogin() {
           
             const admin = res.data.data;
 
-            if(admin.adminEmail==="udyogisiphara22@gmail.com"){
+            if(admin.adminEmail==="oshanimadu@gmail.com"){
               console.log("admin")
                 navigate('/admindash')
             }else{

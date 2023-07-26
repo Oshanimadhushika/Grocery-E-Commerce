@@ -2,6 +2,7 @@ const express=require('express')
 const app = express();
 app.use(express.json());
 const userRoute = require('./routes/UserRoute')
+const adminRoute = require('./routes/AdminRoute')
 
 const mongoose = require('mongoose')
 const PORT = 3500;
@@ -19,3 +20,4 @@ mongoose.connect(
      console.error(err)
 });
 app.use('/api/v1/',userRoute);
+app.use('/api/v1/',adminRoute);
