@@ -23,9 +23,7 @@ export default function Cart() {
     const [qtyOnHand, setQtyOnHand] = useState()
     
     const handleClick = () => {
-      // if (!localStorage.getItem("token")) {
-      //   // navigate("/login")
-      // }
+      
     }
     const handleQty = (e) => {
       setQty(e.target.value);

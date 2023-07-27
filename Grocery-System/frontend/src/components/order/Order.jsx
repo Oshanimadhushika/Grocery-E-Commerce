@@ -11,7 +11,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Button from '@mui/material/Button';
 import axios from 'axios';
-// import { Link} from 'react-router-dom';
+
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -100,8 +100,6 @@ export default function OrdersCart(props) {
              
           }).catch(err=>console.log("err"))
 
-          // let i=qtyOnHand
-          // console.log()
 
           axios.put("http://localhost:3500/api/v1/updateItem/"+uQty, { itemCode:itemCode, itemName:itemName, itemPrice:itemPrice, qtyOnHand:qtyOnHand-qty})
 
@@ -120,7 +118,6 @@ export default function OrdersCart(props) {
   };
 
   const handleViewOrders = (customerEmail) => {
-    // console.log(customerEmail)
     
     window.location.href = `/viewOrders?email=${customerEmail}`;
   };

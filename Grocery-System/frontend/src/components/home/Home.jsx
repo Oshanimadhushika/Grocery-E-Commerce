@@ -3,20 +3,14 @@ import * as React from 'react';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { grid } from '@mui/system';
 import {Box} from '@mui/material'
-
-
-
 
 function Home() {
   const [items, setItems] = useState([]);
     const [qty, setQty] = useState(1)
     
     const handleClick = () => {
-      // if (!localStorage.getItem("token")) {
-      //   // navigate("/login")
-      // }
+      
     }
     const handleQty = (e) => {
       setQty(e.target.value);

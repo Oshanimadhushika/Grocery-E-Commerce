@@ -64,7 +64,7 @@ export default function Signup() {
           if (res.data.message === "saved") {
             localStorage.setItem('user', JSON.stringify(user))
             navigate("/Login");
-            //  return <Navigate to="/Hero"/>
+           
           }
         });
     } catch (err) {
