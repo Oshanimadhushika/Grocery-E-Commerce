@@ -9,6 +9,7 @@ import Cart from "../cart/Cart.jsx";
 import Order from "../order/Order.jsx"
 
 
+
 export const RouteHandler = () =>{
     return(
         <>   
@@ -21,6 +22,7 @@ export const RouteHandler = () =>{
               <Route path="/itemUpdate/:id" element={<ItemUpdate/>}/>
               <Route path="/cart" element={<Cart/>}/>
               <Route path='/order' element={<Order/>}/>
+              
             </Routes>
         </>
     );

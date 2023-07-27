@@ -7,6 +7,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import Button from '@mui/material/Button';
+import axios from 'axios';
+// import { Link} from 'react-router-dom';
 
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -33,48 +38,145 @@ function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
 }
 
-const rows = [
-  createData('Watalappan', 159, 6.0, 24, 4.0),
-  createData('Brownie', 237, 9.0, 37, 4.3),
-  createData('Donuts', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Garlic bread', 356, 16.0, 49, 3.9),
-];
+export default function OrdersCart(props) {
 
-export default function Order() {
-     
+  const [orders, setOrders] = useState([])
 
+
+  const [email, setEmail] = useState("");
+
+  const [qtyOnHand, setQtyOnHand] = useState()
+
+  useEffect(() => {
+
+    var a = localStorage.getItem("myValue");
+    let parse = JSON.parse(a);
+    setOrders(parse)
+
+    var userEmail = localStorage.getItem("formDetails");
+    var email = JSON.parse(userEmail);
+
+    setEmail(email)
+    console.log(email);
+    
+  }, [])
+
+
+
+  // console.log(e);
+  const handleCheckout = async (itemCode, itemName,itemPrice, qty, amount) => {
+
+
+    const obj = {
+      userEmail: email,
+      itemCode: itemCode,
+      itemName: itemName,
+      qty: qty,
+      amount: amount
+    }
+    // console.log(obj);
+
+    const uQty=obj.itemCode;
+
+    try {
+
+      await axios
+        .post("http://localhost:3500/api/v1/order", {
+          obj,
+        })
+        .then((res) => {
+          alert(res.data.message)
+      
+//===========================================================
+          axios
+          .get("http://localhost:3500/api/v1/getSelectItem",{
+            uQty
+          })
+          .then((res)=>{           
+          console.log(res.data.qtyOnHand)
+          setQtyOnHand(res.data.qtyOnHand);
+             
+          }).catch(err=>console.log("err"))
+
+          // let i=qtyOnHand
+          // console.log()
+
+          axios.put("http://localhost:3500/api/v1/updateItem/"+uQty, { itemCode:itemCode, itemName:itemName, itemPrice:itemPrice, qtyOnHand:qtyOnHand-qty})
+
+//===============================================================
+
+
+        }).catch(err => alert(err.response.data.message))
+
+
+    } catch (err) {
+      alert("Failed");
+      console.log(err.message);
+    }
+
+
+  };
+
+  const handleViewOrders = (customerEmail) => {
+    // console.log(customerEmail)
+    
+    window.location.href = `/viewOrders?email=${customerEmail}`;
+  };
+
+ 
   return (
     <>
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 700 }} aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            <StyledTableCell>#</StyledTableCell>
-            <StyledTableCell align="right">Item Code</StyledTableCell>
-            <StyledTableCell align="right">Item Name</StyledTableCell>
-            <StyledTableCell align="right">Quantity</StyledTableCell>
-            <StyledTableCell align="right">Amount</StyledTableCell>
-            <StyledTableCell align="right">Delete</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell align="right">jkkhfjegf</StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-    <div><h1 className='fs-2'>Total Price: 2360/-</h1></div>
+
+      {/* <Link to={'/viewOrders'}>
+      <Button variant="outlined" href="#outlined-buttons">
+        View Orders
+      </Button>
+       </Link> */}
+
+ <Button variant="outlined" href="#outlined-buttons"  onClick={() => handleViewOrders(email)}>
+         View Orders
+     </Button>
+
+      <label></label>
+
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+          <TableHead>
+            <TableRow>
+              <StyledTableCell>Item Code</StyledTableCell>
+              {/* <StyledTableCell align="right">Item Code</StyledTableCell> */}
+              <StyledTableCell align="right">Item Name</StyledTableCell>
+              <StyledTableCell align="right">Quantity</StyledTableCell>
+              <StyledTableCell align="right">Amount</StyledTableCell>
+              {/* <StyledTableCell align="right">Delete</StyledTableCell> */}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {orders.map((order) => (
+              <StyledTableRow key={order}>
+                <StyledTableCell component="th" scope="row">
+                  {order.itemCode}
+                </StyledTableCell>
+                <StyledTableCell align="right">{order.itemName}</StyledTableCell>
+                <StyledTableCell align="right">{order.qty}</StyledTableCell>
+                <StyledTableCell align="right">{order.amount}</StyledTableCell>
+                {/* <StyledTableCell align="right">{order.itemName}</StyledTableCell>
+              <StyledTableCell align="right">{row.protein}</StyledTableCell> */}
+              </StyledTableRow>
+
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      {orders.map((order) => (
+        <div><h1 className='fs-2'>Total Price:{order.amount}</h1></div>
+      ))}
+
+      {orders.map((order) => (
+        <Button type="submit" onClick={() => {
+          handleCheckout(order.itemCode, order.itemName,order.itemPrice, order.qty, order.amount)
+        }} variant="contained">Check Out</Button>
+      ))}
     </>
   );
 }

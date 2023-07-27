@@ -47,40 +47,16 @@ function Home() {
     <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
 
  
-  {/* <div class="carousel-indicators">
-    <button
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide-to="0"
-      class="active"
-      aria-current="true"
-      aria-label="Slide 1"
-    ></button>
-    <button
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide-to="1"
-      aria-label="Slide 2"
-    ></button>
-    <button
-      type="button"
-      data-mdb-target="#carouselBasicExample"
-      data-mdb-slide-to="2"
-      aria-label="Slide 3"
-    ></button>
-  </div> */}
-
- 
-  {/* <div class="carousel-inner">
+  <div class="carousel-inner">
    
     <div class="carousel-item active">
       <img src="https://i.postimg.cc/2Sxgb4th/pho.jpg" style={{height:'88vh'}}  class="d-block w-100" />
     </div>
 
-  </div> */}
+  </div>
 
 
-<Link to={"/order"}>
+{/* <Link to={"/order"}>
      <Button  variant="outlined" color="secondary" style={{marginTop:10}}>My-Orders</Button>
      </Link>
 
@@ -111,7 +87,7 @@ function Home() {
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
           </Typography> */}
-          <Typography gutterBottom variant="h5" component="div">
+          {/* <Typography gutterBottom variant="h5" component="div">
           Price: {item.itemPrice}/-
           </Typography>
           <Typography gutterBottom variant="h5" component="div">
@@ -124,7 +100,7 @@ function Home() {
         </CardContent>
       </CardActionArea>
       ))}
-    </Card>
+    </Card> */} 
 
 
 
