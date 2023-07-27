@@ -64,7 +64,7 @@ export default function OrdersCart(props) {
 
 
   // console.log(e);
-  const handleCheckout = async (itemCode, itemName,itemPrice, qty, amount) => {
+  const handleCheckout = async (email,itemCode, itemName,itemPrice, qty, amount) => {
 
 
     const obj = {
@@ -133,7 +133,7 @@ export default function OrdersCart(props) {
       </Button>
        </Link> */}
 
- <Button variant="outlined" href="#outlined-buttons"  onClick={() => handleViewOrders(email)}>
+ <Button  variant="outlined" href="#outlined-buttons"  sx={{marginTop:5}} onClick={() => handleViewOrders(email)}>
          View Orders
      </Button>
 
@@ -173,7 +173,7 @@ export default function OrdersCart(props) {
       ))}
 
       {orders.map((order) => (
-        <Button type="submit" onClick={() => {
+        <Button  sx={{ mt: 10 }} type="submit" onClick={() => {
           handleCheckout(order.itemCode, order.itemName,order.itemPrice, order.qty, order.amount)
         }} variant="contained">Check Out</Button>
       ))}

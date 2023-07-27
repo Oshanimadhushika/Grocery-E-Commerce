@@ -1,16 +1,17 @@
 import { style } from '@mui/system';
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+// import Card from '@mui/material/Card';
+// import CardContent from '@mui/material/CardContent';
+// import CardMedia from '@mui/material/CardMedia';
+// import Typography from '@mui/material/Typography';
+// import { CardActionArea } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
-//import './Cart.css'
-import Button from '@mui/material/Button';
-import { Link } from 'react-router-dom';
+import { grid } from '@mui/system';
+import {Box} from '@mui/material'
+
+
 
 
 function Home() {
@@ -46,12 +47,23 @@ function Home() {
   return (
     <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
 
+<Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)' }}>
+  <div>
+      <h1>Meilee Online Mart</h1>
+      <h2>Enriching your homes with the best essentials.</h2>
+  </div>
+
+
+  <div class="carousel-item active carousel-inner">
+      <img src="https://image.shutterstock.com/image-photo/african-family-buying-food-supermarket-260nw-1906987540.jpg" style={{height:'85vh' ,marginTop:30}}  class="d-block w-90" />
+  </div>
+</Box>
  
+
+
   <div class="carousel-inner">
    
-    <div class="carousel-item active">
-      <img src="https://i.postimg.cc/2Sxgb4th/pho.jpg" style={{height:'88vh'}}  class="d-block w-100" />
-    </div>
+   
 
   </div>
 
