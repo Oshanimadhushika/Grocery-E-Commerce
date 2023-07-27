@@ -74,7 +74,7 @@ export default function AdminDash() {
       {/* <h4>Admin</h4> */}
 
       <Typography variant="h4" gutterBottom>
-       SET ITEM
+       SET ITEM PANEL
       </Typography>
 
       <Box
