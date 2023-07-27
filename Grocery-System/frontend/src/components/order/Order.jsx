@@ -64,7 +64,7 @@ export default function OrdersCart(props) {
 
 
   // console.log(e);
-  const handleCheckout = async (email,itemCode, itemName,itemPrice, qty, amount) => {
+  const handleCheckout = async (itemCode, itemName,itemPrice, qty, amount) => {
 
 
     const obj = {

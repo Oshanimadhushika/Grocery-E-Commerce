@@ -50,14 +50,9 @@ export default function LogIn() {
         .then((res)=>{
           
             const user = res.data.data;
+            localStorage.setItem('formDetails',JSON.stringify(user.userEmail))
             navigate('/cart')
-            // if(user.userEmail==="uwanitheekshani@gmail.com"){
-            //   console.log("admin")
-            //     navigate('/admindash')
-            // }else{
-            //   console.log("user")
-            //   navigate('/Hero')
-            // }
+           
         })
     }catch(err){
         alert("Email or password incorrect.!")
