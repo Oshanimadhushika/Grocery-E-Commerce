@@ -127,11 +127,6 @@ export default function OrdersCart(props) {
   return (
     <>
 
-      {/* <Link to={'/viewOrders'}>
-      <Button variant="outlined" href="#outlined-buttons">
-        View Orders
-      </Button>
-       </Link> */}
 
  <Button  variant="outlined" href="#outlined-buttons"  sx={{marginTop:5}} onClick={() => handleViewOrders(email)}>
          View Orders
@@ -175,7 +170,7 @@ export default function OrdersCart(props) {
       {orders.map((order) => (
         <Button  sx={{ mt: 10 }} type="submit" onClick={() => {
           handleCheckout(order.itemCode, order.itemName,order.itemPrice, order.qty, order.amount)
-        }} variant="contained">Check Out</Button>
+        }} variant="contained">Place Order</Button>
       ))}
     </>
   );

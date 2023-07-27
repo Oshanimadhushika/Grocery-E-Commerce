@@ -8,6 +8,7 @@ import ItemUpdate from "../itemUpdate/ItemUpdate.jsx";
 import Cart from "../cart/Cart.jsx";
 import Order from "../order/Order.jsx";
 import Payments from "../payments/payment.jsx";
+import ViewOrders from "../viewOrder/viewOrder.jsx";
 
 
 
@@ -24,6 +25,7 @@ export const RouteHandler = () =>{
               <Route path="/cart" element={<Cart/>}/>
               <Route path='/order' element={<Order/>}/>
               <Route path='/payment' element={<Payments/>}/>
+              <Route path='/viewOrders' element={<ViewOrders/>}/>
               
             </Routes>
         </>
