@@ -60,8 +60,22 @@ export default function Cart() {
 
   return (
     <>
+ <Typography
+            sx={{
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              margingTop:20,
+              fontSize:40
+            }}
+          >
+           CART
+          </Typography>
+
     <Link to={"/order"}>
-     <Button  variant="outlined" color="secondary" sx={{marginTop:10}}>My-Orders</Button>
+     <Button  variant="outlined" color="secondary" sx={{marginTop:5}}>My-Orders</Button>
      </Link>
 
     <Card sx={{display:'flex', flexDirection:'row', gap:5, padding:8}}>

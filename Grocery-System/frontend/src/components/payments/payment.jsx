@@ -6,6 +6,7 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -52,6 +53,20 @@ export default function Payments() {
       };
 
   return (
+    <>
+    <Typography
+            sx={{
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              margingTop:20,
+              fontSize:40
+            }}
+          >
+            PAYMENTS
+          </Typography>
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
@@ -78,5 +93,6 @@ export default function Payments() {
         </TableBody>
       </Table>
     </TableContainer>
+    </>
   );
 }

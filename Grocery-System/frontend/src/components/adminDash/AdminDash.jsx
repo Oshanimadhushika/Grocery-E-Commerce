@@ -74,7 +74,7 @@ export default function AdminDash() {
       {/* <h4>Admin</h4> */}
 
       <Typography variant="h4" gutterBottom>
-        Item Panel
+       SET ITEM
       </Typography>
 
       <Box
@@ -98,18 +98,10 @@ export default function AdminDash() {
           name="qtyOnHand" label="QTYOnHand" variant="outlined" onChange={(e) => setQtyOnHand(e.target.value)}
         />
 
-
-        {/* <Stack direction="row" spacing={2} className='buttons-stack'> */}
-          {/* <Button color="secondary">Update</Button> */}
           <Button type="submit" variant="contained" color="success">
             Save
           </Button>
-          {/* <Button variant="outlined" color="error">
-            Delete
-          </Button> */}
-        {/* </Stack> */}
-
-
+      
       </Box>
 
 

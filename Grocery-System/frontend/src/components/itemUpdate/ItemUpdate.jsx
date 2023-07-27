@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { useParams} from 'react-router-dom';
+import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -46,6 +47,20 @@ export default function FormPropsTextFields() {
         }
 
   return (
+    <>
+     <Typography
+            sx={{
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              letterSpacing: '.3rem',
+              color: 'inherit',
+              textDecoration: 'none',
+              margingTop:20,
+              fontSize:40
+            }}
+          >
+            ITEM UPDATE
+          </Typography>
     <Box
       component="form"
       sx={{
@@ -92,5 +107,6 @@ export default function FormPropsTextFields() {
       
       <Button type="submit" variant="contained">Update</Button>
     </Box>
+    </>
   );
 }
