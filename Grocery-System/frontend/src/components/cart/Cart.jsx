@@ -55,7 +55,7 @@ export default function Cart() {
         <CardMedia
           component="img"
           height="140"
-          image="https://i.postimg.cc/3xMYr8Mm/3524.jpg"
+          image="https://img.freepik.com/premium-photo/shopping-bag-full-fresh-fruits-vegetables-with-assorted-ingredients_8087-2232.jpg"
           alt="green iguana"
         />
         <CardContent style={{ border:1}}>
