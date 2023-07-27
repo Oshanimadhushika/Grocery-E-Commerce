@@ -35,6 +35,11 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 export default function Payments() {
 
+  const getTotalPrice = () => {
+    const totalPrice = orders.reduce((sum, order) => sum + order.amount, 0);
+    return totalPrice;
+  };
+
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
@@ -93,6 +98,12 @@ export default function Payments() {
         </TableBody>
       </Table>
     </TableContainer>
+
+    {orders.length > 0 && (
+        <div style={{display:'flex' , justifyContent:'flex-end'}}>
+          <h2 className='fs-2'>Total Price:</h2> <h2 style={{color:"crimson"}}>{getTotalPrice()}</h2>
+        </div>
+    )}
     </>
   );
 }
