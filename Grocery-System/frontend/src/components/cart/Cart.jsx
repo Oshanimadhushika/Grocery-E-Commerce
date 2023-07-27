@@ -98,7 +98,7 @@ export default function Cart() {
           </Typography>
           <select className="m-2 h-100 w-20 bg-success text-black rounded" style={{ select: "#FF0000" }} onClick={handleClick} onChange={handleQty}>
             
-              {Array.from(Array(6), (e, i) => {
+              {Array.from(Array(item.qtyOnHand), (e, i) => {
                 return (
                   <option key={i + 1} value={i + 1}>{i + 1}</option>)
               })}
